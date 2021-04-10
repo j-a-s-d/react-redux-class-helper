@@ -8,11 +8,19 @@ It uses `react`, `redux` and `react-redux` libraries.
 
 ## SETUP
 
-Copy the react-redux-class-helper.jsx to your project and use it.
+Copy the react-redux-class-helper.js to your project and use it.
 
-> In case it gets enough attention I'll create an npm package, otherwise I'll assume it's not of value for the community.
+> In case it gets enough attention I'll create an npm package and create more detailed documentation, otherwise I'll assume it's not of value for the community.
+
+## FEATURES
+
+RRCH allows you to get in one place the actions, the message dispatching capabilities (synchronous and asynchronous) and store access in just one place, plus reducing the code required for all that.
 
 ## HOW TO USE IT
+
+The RRCH requires you to initialize it passing to it's initialization routine the actions, the reducer and the App root you will use, and it's result is what you will pass to the ReactDOM.render routine.
+
+NOTE: the following examples assume you copied the RRCH file to your project's root.
 
 ### RRCH Initialization [RRCH.initialize(...)]
 
@@ -22,13 +30,44 @@ A sample RRCH initialization in an hypotetical "index.js" file might look like:
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RRCH from './react-redux-class-helper'
+import RRCH from './react-redux-class-helper';
 import reducer from './reducer';
 import actions from './actions';
 import App from './components/App';
 import settings from './settings.json';
 
 ReactDOM.render(RRCH.initialize(actions, reducer, <App settings={settings} />), document.getElementById('root'));
+
+```
+
+Note that the actions are just like the regular ones:
+
+```js
+export default {
+    AN_ACTION: 'AN_ACTION',
+    ANOTHER_ACTION: 'ANOTHER_ACTION'
+};
+```
+
+and the reducer is like the regular one too:
+
+```js
+import RRCH from './react-redux-class-helper';
+import actions from './actions';
+
+const INITIAL_STATE = ...;
+
+export default (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case actions.AN_ACTION:
+            ... // NOTE: here you can call do async dispatches of messages using RRCH.asyncDispatch({ type: actions.SOME_ACTION, value: "some value" })
+            return state;
+        ...
+        default:
+            return state;
+    }
+}
+*/
 
 ```
 
