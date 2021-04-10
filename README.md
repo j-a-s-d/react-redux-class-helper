@@ -2,21 +2,23 @@
 
 React-Redux Class-Helper is an experimental simplifier of this popular front-end Javascript libraries combination.
 
-## PREREQUISTES
+## FEATURES
+
+RRCH allows you to get in one place the actions, the message dispatching capabilities (synchronous and asynchronous) and store access in just one place, plus reducing the code required for all that.
+
+## SETUP
+
+### PREREQUISITES
 
 It uses `react`, `redux` and `react-redux` libraries.
 
-## SETUP
+### COPY
 
 Copy the react-redux-class-helper.js to your project and use it.
 
 > In case it gets enough attention I'll create an npm package and create more detailed documentation, otherwise I'll assume it's not of value for the community.
 
-## FEATURES
-
-RRCH allows you to get in one place the actions, the message dispatching capabilities (synchronous and asynchronous) and store access in just one place, plus reducing the code required for all that.
-
-## HOW TO USE IT
+## USAGE
 
 The RRCH requires you to initialize it passing to it's initialization routine the actions, the reducer and the App root you will use, and it's result is what you will pass to the ReactDOM.render routine.
 
