@@ -14,6 +14,8 @@ Copy the react-redux-class-helper.jsx to your project and use it.
 
 ## HOW TO USE IT
 
+### RRCH Initialization [RRCH.initialize(...)]
+
 A sample RRCH initialization in an hypotetical "index.js" file might look like:
 
 ```js
@@ -29,6 +31,8 @@ import settings from './settings.json';
 ReactDOM.render(RRCH.initialize(actions, reducer, <App settings={settings} />), document.getElementById('root'));
 
 ```
+
+### Class Extension [... extends RRCH]
 
 Following that example, a sample RRCH class extension in a the hypotetical "App.jsx" (note that the dispatch routine is provided on the *afterMounting* override) might look like:
 
@@ -48,6 +52,8 @@ export default class App extends RRCH {
 
 ```
 
+### Store Full-Connection [RRCH.connected(...)]
+
 And for all the views/controls/widgets you want to create you can fully connect the store (accessing it's keys like usual: via *this.props.key*) to them like this:
 
 ```js
@@ -63,6 +69,8 @@ export default RRCH.connected(class SampleWidget extends RRCH {
 }
 
 ```
+
+### Store Partial-Connection [RRCH.connecting(...)]
 
 Or just to connect some of the keys available in the store (being accessed like usual: via *this.props.key*) like this:
 
