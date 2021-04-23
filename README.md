@@ -130,6 +130,7 @@ export default RRCH.connecting(['text'], class SampleInput extends RRCH {
 
 ## HISTORY
 
+* 1.0.1 [23 Apr 2021] - adopted isArray
 * 1.0.0 [10 Apr 2021] - public release
 * 0.1.0 [07 Oct 2020] - last update
 * 0.0.1 [17 Sep 2020] - started coding

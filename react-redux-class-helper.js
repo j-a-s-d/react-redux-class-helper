@@ -15,7 +15,7 @@ const CONNECTOR_MAKERS = {
 };
 
 const HELPER_ROUTINES = {
-    CONNECTOR_SELECTOR: (keys, klass) => (Object.prototype.toString.call(keys) === '[object Array]' ? CONNECTOR_MAKERS.PARTIAL(keys) : CONNECTOR_MAKERS.FULL())(klass),
+    CONNECTOR_SELECTOR: (keys, klass) => (Array.isArray(keys) ? CONNECTOR_MAKERS.PARTIAL(keys) : CONNECTOR_MAKERS.FULL())(klass),
     DEFAULT_PROVIDER: (content) => React.createElement(Provider, { store: RRCH.store }, content), // NOTE: equivalent to the JSX expression (<Provider store={RRCH.store}>{content}</Provider>)
     ASYNC_DISPATCHER: (data) => setTimeout(() => RRCH.store.dispatch(data))
 };
@@ -29,7 +29,7 @@ class AutobindableReactComponent extends React.Component {
 }
 
 export default class RRCH extends AutobindableReactComponent {
-    static VERSION = '1.0.0';
+    static VERSION = '1.0.1';
 
     static store = null;
 
